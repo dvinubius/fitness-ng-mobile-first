@@ -1,0 +1,21 @@
+<div class="wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex.gt-xs="400px" fxLayout="column" fxLayoutGap="20px">
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>{{exercise.name}} !</mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column" fxLayoutAlign="center"
+        fxLayoutGap="24px">
+        <mat-progress-spinner 
+          color="primary"
+          mode="determinate"
+          [value]="progress"
+          fxFlexAlign="center">
+        </mat-progress-spinner>
+        <div class="progress-text" fxFlexAlign="center">{{progress/100 | percent:'1.1-1'}}</div>
+        <div class="motivator-text" fxFlexAlign="center">Keep going, you can do it!</div>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center">
+        <button mat-raised-button color="accent" (click)="pausePlayDialog()">{{buttonText}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

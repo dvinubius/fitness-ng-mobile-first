@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" 
+  fxLayout="row" 
+  fxLayoutAlign="start center">
+  <div *ngIf="isHandset$ | async">
+    <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button 
+    (click)="menuClicked.emit()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+  </div>
+  <a routerLink='/' class='brand' 
+    fxFlex fxLayout fxLayoutAlign="start start" fxLayoutGap="24px">
+    <mat-icon class="logo-icon">directions_run</mat-icon>
+    <div>Fitness App</div>
+  </a>
+  <div class='navi-list' fxFlex fxLayout fxLayoutAlign="flex-end"
+    *ngIf='!(isHandset$ | async)'>
+    <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="20px">
+      <li *ngIf="!(isAuth$ | async)"><a routerLink="/signup">Signup</a></li>
+      <li *ngIf="!(isAuth$ | async)"><a routerLink="/login">Login</a></li>
+      <li *ngIf="isAuth$ | async"><a routerLink="/training">Training</a></li>
+      <li *ngIf="isAuth$ | async"><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h1 mat-dialog-title>Stop Exercise</h1>
+  <mat-dialog-content>
+    <p>Are you sure?</p>
+    <p>You've already got {{progress | percent}}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Keep Going</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Stop</button>
+  </mat-dialog-actions>
+</div>

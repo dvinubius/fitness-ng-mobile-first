@@ -1,0 +1,33 @@
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.brand {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.navi-list ul {
+  list-style: none;
+  a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: lightgrey;
+      cursor: pointer;
+    }
+  }
+}
+
+.logo-icon {
+  font-size: 24px;
+  margin-left: 16px;
+  color: deeppink;
+  transform: translate(4px, 4px) scale(1.5);
+  box-shadow: 0 0 4px 4px white;
+  border-radius: 50%;
+}

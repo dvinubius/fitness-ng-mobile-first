@@ -1,0 +1,23 @@
+<section class="wrapper">
+  <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" m-fx #f="ngForm" (ngSubmit)="submitForm(f)">
+    <mat-form-field>
+      <input type="email" matInput placeholder="Your Email" ngModel name="email" email required #emailCtrl="ngModel">
+      <mat-error *ngIf="emailCtrl.hasError('required')">Field must not be empty</mat-error>
+      <mat-error *ngIf="emailCtrl.hasError('email')">Email is invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" ngModel name="password" required minlength="6" #passCtrl="ngModel">
+      <mat-error *ngIf="passCtrl.hasError('required')">Field must not be empty</mat-error>
+      <mat-error *ngIf="passCtrl.hasError('minlength')">Too short.</mat-error>
+      <mat-hint>Should be at least 6 characters long.</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [max]="maxDate" [matDatepicker]="picker" placeholder="Your Birthdate" #dateInput name="date">
+      <mat-error *ngIf="isAboveMax(dateInput.value)">You're too young.</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-checkbox labelPosition="before">I have read the <a href="#">terms and conditions</a></mat-checkbox>
+    <button mat-flat-button type="submit" color="primary">Submit</button>
+  </form>
+</section>
